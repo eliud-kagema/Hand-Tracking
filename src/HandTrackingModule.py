@@ -23,9 +23,9 @@ class handDetector():
         if self.results.multi_hand_landmarks:
             for handLms in self.results.multi_hand_landmarks:
                 if draw:
-                    self.mpDraw.draw_landmarks(img, handLms,
-                                               self.mpHands.HAND_CONNECTIONS)
+                    self.mpDraw.draw_landmarks(img, handLms, self.mpHands.HAND_CONNECTIONS)
         return img
+
     def findPosition(self, img, handNo=0, draw=True):
         lmList = []
         if self.results.multi_hand_landmarks:
@@ -59,5 +59,6 @@ def main():
                     (255, 0, 255), 3)
         cv2.imshow("Image", img)
         cv2.waitKey(1)
+
 if __name__ == "__main__":
     main()
